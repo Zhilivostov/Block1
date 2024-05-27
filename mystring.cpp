@@ -1,17 +1,17 @@
-//#pragma warning(disable : 4996) // костыль для strcpy и strncpy
-//#pragma warning(disable : 6386) // костыль для 33 строки (m_arr[n] = '\0')
+//#pragma warning(disable : 4996) // ГЄГ®Г±ГІГ»Г«Гј Г¤Г«Гї strcpy ГЁ strncpy
+//#pragma warning(disable : 6386) // ГЄГ®Г±ГІГ»Г«Гј Г¤Г«Гї 33 Г±ГІГ°Г®ГЄГЁ (m_arr[n] = '\0')
 
 #include "mystring.h"
-#include <algorithm> //подключает std::min
-#include <cstring> //подключает strlen - считает количество символов до детерменированного нуля, strcpy - копирует содержимое второй строки в первую, strncpy
-#include <stdexcept>  //исключения
+#include <algorithm> //ГЇГ®Г¤ГЄГ«ГѕГ·Г ГҐГІ std::min
+#include <cstring> //ГЇГ®Г¤ГЄГ«ГѕГ·Г ГҐГІ strlen - Г±Г·ГЁГІГ ГҐГІ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г±ГЁГ¬ГўГ®Г«Г®Гў Г¤Г® Г¤ГҐГІГҐГ°Г¬ГҐГ­ГЁГ°Г®ГўГ Г­Г­Г®ГЈГ® Г­ГіГ«Гї, strcpy - ГЄГ®ГЇГЁГ°ГіГҐГІ Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ ГўГІГ®Г°Г®Г© Г±ГІГ°Г®ГЄГЁ Гў ГЇГҐГ°ГўГіГѕ, strncpy
+#include <stdexcept>  //ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГї
 
-void String::release()//провеерка на нулптр
+void String::release()//ГЇГ°Г®ГўГҐГҐГ°ГЄГ  Г­Г  Г­ГіГ«ГЇГІГ°
 {
-	/*if (_countref == nullptr || _arr == nullptr)
+	if (_countref == nullptr || _arr == nullptr)
 	{
 		throw std::invalid_argument("Passing a null pointer!");
-	}*/
+	}
 	if (*_countref > 1)
 	{
 		--*_countref;
@@ -25,7 +25,7 @@ void String::release()//провеерка на нулптр
 	_arr = nullptr;
 }
 
-void String::branch(size_t new_capacity)//провеерка на нулптр
+void String::branch(size_t new_capacity)//ГЇГ°Г®ГўГҐГҐГ°ГЄГ  Г­Г  Г­ГіГ«ГЇГІГ°
 {
 	if (_countref == nullptr || _arr == nullptr)
 	{
@@ -126,7 +126,7 @@ size_t String::capacity() const
 	return _capacity;
 }
 
-void String::reserve(size_t n) //!!!!!!не ломается ли здесь count referense?
+void String::reserve(size_t n) //!!!!!!Г­ГҐ Г«Г®Г¬Г ГҐГІГ±Гї Г«ГЁ Г§Г¤ГҐГ±Гј count referense?
 {
 	if (n <= _capacity)
 	{
@@ -349,7 +349,7 @@ String String::substr(size_t pos, size_t len) const
 
 int String::compare(const String& str) const
 {
-	return strcmp(_arr, str.data()); //сравнивает посимвольно строки
+	return strcmp(_arr, str.data()); //Г±Г°Г ГўГ­ГЁГўГ ГҐГІ ГЇГ®Г±ГЁГ¬ГўГ®Г«ГјГ­Г® Г±ГІГ°Г®ГЄГЁ
 }
 
 size_t String::countRef() const
